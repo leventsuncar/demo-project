@@ -1,7 +1,6 @@
 package com.demo.api.controllers;
 
 import com.demo.core.results.ErrorDataResult;
-import com.demo.entities.Film;
 import com.demo.entities.dtos.FilmDto;
 import com.demo.service.abstracts.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;

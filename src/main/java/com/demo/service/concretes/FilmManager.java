@@ -28,6 +28,7 @@ public class FilmManager implements FilmService {
     private ActorDao actorDao;
     private GenreDao genreDao;
 
+
     @Autowired
     public FilmManager(FilmDao filmDao, ModelMapper modelMapper, ActorDao actorDao, GenreDao genreDao) {
         this.filmDao = filmDao;
@@ -45,8 +46,8 @@ public class FilmManager implements FilmService {
         }
         film.setActor(actorList);
         List<Genre> genreList = new ArrayList<Genre>();
-        for (String genre : filmDto.getGenreGenreNames()) {
-            genreList.add(genreDao.findByGenreName(genre));
+        for (String genre : filmDto.getGenreNames()) {
+            genreList.add(genreDao.findByName(genre));
         }
         film.setGenre(genreList);
         filmDao.save(film);
@@ -72,8 +73,33 @@ public class FilmManager implements FilmService {
     @Override
     public DataResult<List<FilmDto>> getAll() {
         List<Film> filmList = filmDao.findAll();
-        List<FilmDto> filmDtoList = new ArrayList<FilmDto>();
+        return new SuccessDataResult<List<FilmDto>>(map(filmList));
+    }
 
+    @Override
+    public DataResult<Film> findByName(String name) {
+
+
+        return new SuccessDataResult<Film>(filmDao.findByFilmName(name));
+    }
+
+    @Override
+    public DataResult<List<FilmDto>> findByActorName(String actorName) {
+        List<Film> filmList = filmDao.findAllByActor_Name(actorName);
+        return new SuccessDataResult<List<FilmDto>>(map(filmList));
+    }
+
+    @Override
+    public DataResult<List<FilmDto>> findByGenreName(String genreName) {
+        List<Film> filmList = filmDao.findAllByGenre_Name(genreName);
+
+        return new SuccessDataResult<List<FilmDto>>(map(filmList));
+
+
+    }
+
+    public List<FilmDto> map(List<Film> filmList) {
+        List<FilmDto> filmDtoList = new ArrayList<FilmDto>();
         for (Film film : filmList) {
 
             List<String> actorNames = new ArrayList<String>();
@@ -83,29 +109,13 @@ public class FilmManager implements FilmService {
                 actorNames.add(actor.getName());
             }
             for (Genre genre : film.getGenre()) {
-                genreNames.add(genre.getGenreName());
+                genreNames.add(genre.getName());
             }
             FilmDto filmDto = modelMapper.map(film, FilmDto.class);
             filmDto.setActorNames(actorNames);
-            filmDto.setGenreGenreNames(genreNames);
+            filmDto.setGenreNames(genreNames);
             filmDtoList.add(filmDto);
         }
-
-        return new SuccessDataResult<List<FilmDto>>(filmDtoList);
-    }
-
-    @Override
-    public DataResult<Film> findByName(String name) {
-        return new SuccessDataResult<Film>(filmDao.findByFilmName(name));
-    }
-
-    @Override
-    public DataResult<List<Film>> findByActorName(String name) {
-        return new SuccessDataResult<List<Film>>(filmDao.findAllByActor_Name(name));
-    }
-
-    @Override
-    public DataResult<List<Film>> findByGenreName(String genreName) {
-        return new SuccessDataResult<List<Film>>(filmDao.findAllByGenre_GenreName(genreName));
+        return filmDtoList;
     }
 }

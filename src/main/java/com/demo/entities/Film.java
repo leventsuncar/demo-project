@@ -30,7 +30,7 @@ public class Film {
     @NotNull(message = "Medya boş bırakılamaz")
     private String media;
 
-    @Column(name = "language") //bu enum olmalı galiba
+    @Column(name = "language")
     private String language;
 
     @Column(name = "description")

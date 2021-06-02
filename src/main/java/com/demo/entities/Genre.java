@@ -23,7 +23,7 @@ public class Genre {
     @Column(name = "name")
     @NotNull
     @NotBlank
-    private String genreName;
+    private String name;
 
     @ManyToMany(mappedBy = "genre")
     @JsonIgnore

@@ -17,7 +17,7 @@ public interface FilmService {
 
     DataResult<List<FilmDto>> getAll();
 
-    DataResult<Film> findByName(String name);
+    DataResult<FilmDto> findByName(String name);
 
     DataResult<List<FilmDto>> findByActorName(String name);
 

@@ -77,10 +77,10 @@ public class FilmManager implements FilmService {
     }
 
     @Override
-    public DataResult<Film> findByName(String name) {
+    public DataResult<FilmDto> findByName(String name) {
+    Film film = filmDao.findByFilmName(name);
 
-
-        return new SuccessDataResult<Film>(filmDao.findByFilmName(name));
+    return new SuccessDataResult<FilmDto>(modelMapper.map(film,FilmDto.class));
     }
 
     @Override

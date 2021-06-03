@@ -6,16 +6,19 @@ import com.demo.service.abstracts.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-@RestController
-@RequestMapping("/api/films")
+
+@Controller
 public class FilmsController {
 
 
@@ -48,17 +51,24 @@ public class FilmsController {
         return null;
     }
 
-    @GetMapping("/getall")
-    public ResponseEntity<?> getAll() {
-
-        return ResponseEntity.ok(filmService.getAll());
+    @GetMapping("/films")
+    public String getAll(Model model) {
+        List<FilmDto> films = filmService.getAll().getData();
+        model.addAttribute("films",films);
+        return "films";
 
     }
 
     @GetMapping("/getbyname")
-    public ResponseEntity<?> findByName(@Valid @RequestParam String name) {
-
-        return ResponseEntity.ok(filmService.findByName(name));
+    public String findByName(@Valid @RequestParam(value = "name",required = false) String name, Model model) {
+        try {
+            FilmDto film = filmService.findByName(name).getData();
+            model.addAttribute("film",film);
+            return "getbyname";
+        }
+        catch (IllegalArgumentException e){
+            throw e;
+        }
 
     }
 

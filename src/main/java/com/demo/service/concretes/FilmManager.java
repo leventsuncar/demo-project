@@ -79,8 +79,19 @@ public class FilmManager implements FilmService {
     @Override
     public DataResult<FilmDto> findByName(String name) {
     Film film = filmDao.findByFilmName(name);
+        FilmDto filmDto = modelMapper.map(film, FilmDto.class);
+        List<String> actorList = new ArrayList<String>();
+        for (Actor actor : film.getActor()) {
+            actorList.add(actor.getName());
+        }
+        filmDto.setActorNames(actorList);
+        List<String> genreList = new ArrayList<String>();
+        for (Genre genre : film.getGenre()) {
+            genreList.add(genre.getName());
+        }
+        filmDto.setGenreNames(genreList);
 
-    return new SuccessDataResult<FilmDto>(modelMapper.map(film,FilmDto.class));
+        return new SuccessDataResult<FilmDto>(filmDto);
     }
 
     @Override

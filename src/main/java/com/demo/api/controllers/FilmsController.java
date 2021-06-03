@@ -73,17 +73,32 @@ public class FilmsController {
     }
 
     @GetMapping("/getbyactorname")
-    public ResponseEntity<?> findByActorName(@Valid @RequestParam String name) {
+    public String findByActorName(@Valid @RequestParam(value = "name",required = false) String name, Model model) {
 
-        return ResponseEntity.ok(filmService.findByActorName(name));
+        try {
+            List<FilmDto> films = filmService.findByActorName(name).getData();
+            //servisteki metodlarım DataResult dönüyor. Bana sadece data lazım.
+            model.addAttribute("films",films);
+            return "getbyactorname";
+        }
+        catch (IllegalArgumentException e){
+            throw e;
+        }
 
     }
 
     @GetMapping("/getbygenrename")
-    public ResponseEntity<?> findByGenreName(@Valid @RequestParam String genreName) {
+    public String findByGenreName(@Valid @RequestParam(value = "name") String name, Model model) {
 
-        return ResponseEntity.ok(filmService.findByGenreName(genreName));
-
+        try {
+            List<FilmDto> films = filmService.findByGenreName(name).getData();
+            //servisteki metodlarım DataResult dönüyor. Bana sadece data lazım.
+            model.addAttribute("films",films);
+            return "getbygenrename";
+        }
+        catch (IllegalArgumentException e){
+            throw e;
+        }
     }
 
 

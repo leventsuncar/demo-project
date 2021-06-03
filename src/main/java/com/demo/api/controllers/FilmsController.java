@@ -30,9 +30,11 @@ public class FilmsController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@Valid @RequestBody FilmDto filmDto) {
+    public String add(@Valid @ModelAttribute FilmDto filmDto,Model model) {
 
-        return ResponseEntity.ok(filmService.add(filmDto));
+        filmService.add(filmDto);
+
+        return "films";
 
     }
 

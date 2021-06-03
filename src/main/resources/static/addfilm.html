@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Film</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar sticky-top navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Film</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <form action="index.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Ana Sayfa</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/films" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Filmler</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="filmname.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Film Ara</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="actorname.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Oyuncuya Göre Film Ara</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="genrename.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Türe Göre Film Ara</button>
+                </form>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<div class="container">
+    <form action="/add" method="post" th:object="filmDto">
+        <div class="sm-3">
+            <label for="filmadi" class="form-label">Film Adı</label>
+            <input type="text" name="name" th:name="name" class="form-control" id="filmadi">
+
+        </div>
+        <div class="sm-3">
+            <label for="tarih" class="form-label">Yayınlanma Tarihi</label>
+            <input type="text" name="releaseYear" th:name="releaseYear" class="form-control" id="tarih">
+
+        </div>
+        <div class="sm-3">
+            <label for="link" class="form-label">Medya Linki</label>
+            <input type="text" name="media" th:name="media" class="form-control" id="link">
+
+        </div>
+        <div class="sm-3">
+            <label for="dil" class="form-label">Dil</label>
+            <input type="text" name="language" th:name="language" class="form-control" id="dil">
+
+        </div>
+        <div class="sm-3">
+            <label for="aciklama" class="form-label">Açıklama</label>
+            <input type="text" name="description" th:name="description" class="form-control" id="aciklama">
+
+        </div>
+        <div class="sm-3">
+            <label for="oyuncular" class="form-label">Oyuncular</label>
+            <input type="text" name="actorNames" th:name="actorNames" class="form-control" id="oyuncular">
+
+        </div>
+        <div class="sm-3">
+            <label for="türler" class="form-label">Türler</label>
+            <input type="text" name="genreNames" th:name="genreNames" class="form-control" id="türler">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>

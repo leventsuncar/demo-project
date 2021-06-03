@@ -30,60 +30,58 @@ public class FilmsController {
     }
 
     @PostMapping("/add")
-    public String add(@Valid @ModelAttribute FilmDto filmDto,Model model) {
+    public String add(@Valid @ModelAttribute FilmDto filmDto, Model model) {
 
         filmService.add(filmDto);
 
-        return "films";
+        return getAll(model);
 
     }
 
-    @DeleteMapping("/deletebyname")
-    public ResponseEntity<?> deleteByFilmName(@Valid @RequestParam String name) {
-
-        return ResponseEntity.ok(filmService.deleteByFilmName(name));
+    @GetMapping("/deletebyname")
+    public String deleteByFilmName(@Valid @RequestParam(name = "name", required = false) String name, Model model) {
+        filmService.deleteByFilmName(name);
+        return getAll(model);
 
     }
 
-    @PutMapping("/updatebyname")
-    public ResponseEntity<?> updateByFilmName(@Valid @RequestParam String name) {
+    @GetMapping("/updatebyname")
+    public String updateByFilmName(@Valid @ModelAttribute FilmDto filmDto, @RequestParam("name") String name, Model model) {
 
-        //yapılacak
+        filmService.updateByFilmName(name,filmDto);
 
-        return null;
+        return getAll(model);
     }
 
     @GetMapping("/films")
     public String getAll(Model model) {
         List<FilmDto> films = filmService.getAll().getData();
-        model.addAttribute("films",films);
+        model.addAttribute("films", films);
         return "films";
 
     }
 
     @GetMapping("/getbyname")
-    public String findByName(@Valid @RequestParam(value = "name",required = false) String name, Model model) {
+    public String findByName(@Valid @RequestParam(value = "name", required = false) String name, Model model) {
         try {
             FilmDto film = filmService.findByName(name).getData();
-            model.addAttribute("film",film);
+            model.addAttribute("film", film);
             return "getbyname";
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 
     }
 
     @GetMapping("/getbyactorname")
-    public String findByActorName(@Valid @RequestParam(value = "name",required = false) String name, Model model) {
+    public String findByActorName(@Valid @RequestParam(value = "name", required = false) String name, Model model) {
 
         try {
             List<FilmDto> films = filmService.findByActorName(name).getData();
             //servisteki metodlarım DataResult dönüyor. Bana sadece data lazım.
-            model.addAttribute("films",films);
+            model.addAttribute("films", films);
             return "getbyactorname";
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 
@@ -95,10 +93,9 @@ public class FilmsController {
         try {
             List<FilmDto> films = filmService.findByGenreName(name).getData();
             //servisteki metodlarım DataResult dönüyor. Bana sadece data lazım.
-            model.addAttribute("films",films);
+            model.addAttribute("films", films);
             return "getbygenrename";
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw e;
         }
     }

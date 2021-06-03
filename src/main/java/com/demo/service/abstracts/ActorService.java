@@ -17,4 +17,6 @@ public interface ActorService {
     DataResult<List<Actor>> getAll();
 
     DataResult<Actor> findByName(String name);
+
+    //bunları ezbere yazdım hiç kullanmadım
 }

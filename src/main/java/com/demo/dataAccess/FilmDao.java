@@ -2,8 +2,8 @@ package com.demo.dataAccess;
 
 import com.demo.entities.Film;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface FilmDao extends JpaRepository<Film, Long> {
@@ -14,6 +14,6 @@ public interface FilmDao extends JpaRepository<Film, Long> {
 
     List<Film> findAllByGenre_Name(String genreName);
 
-
+    @Transactional
     void deleteFilmByFilmName(String name);
 }

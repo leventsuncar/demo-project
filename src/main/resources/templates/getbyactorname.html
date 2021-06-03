@@ -2,136 +2,151 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-  <meta charset="UTF-8">
-  <title>Filmler</title>
-  <style>
-    th {
-      cursor: pointer;
-    }
-  </style>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Filmler</title>
+    <style>
+        th {
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar sticky-top navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Film</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <a class="navbar-brand" href="#">Film</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <form action="index.html" method="get">
-          <button class="btn btn-dark my-2 my-sm-0" type="submit">Ana Sayfa</button>
-        </form>
-      </li>
-      <li class="nav-item">
-        <form action="/films" method="get">
-          <button class="btn btn-dark my-2 my-sm-0" type="submit">Filmler</button>
-        </form>
-      </li>
-      <li class="nav-item">
-        <form action="filmname.html" method="get">
-          <button class="btn btn-dark my-2 my-sm-0" type="submit">Film Ara</button>
-        </form>
-      </li>
-      <li class="nav-item">
-        <form action="actorname.html" method="get">
-          <button class="btn btn-dark my-2 my-sm-0" type="submit">Oyuncuya Göre Film Ara</button>
-        </form>
-      </li>
-      <li class="nav-item">
-        <form action="genrename.html" method="get">
-          <button class="btn btn-dark my-2 my-sm-0" type="submit">Türe Göre Film Ara</button>
-        </form>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <form action="index.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Ana Sayfa</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/films" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Filmler</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="filmname.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Film Ara</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="actorname.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Oyuncuya Göre Film Ara</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="genrename.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Türe Göre Film Ara</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="addfilm.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Film Ekle</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="deletefilm.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Film Sil</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="updatefilm.html" method="get">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Filmi Güncelle</button>
+                </form>
+            </li>
+        </ul>
 
-  </div>
+    </div>
 </nav>
 
 <table class="table" id="sortTable">
-  <thead>
-  <tr>
-    <th onclick="sortTable(0)">Film Adı</th>
-    <th onclick="sortTable(1)">Yayınlanma Tarihi</th>
-    <th scope="col">Dil</th>
-    <th scope="col">Açıklama</th>
-    <th scope="col">Oyuncular</th>
-    <th scope="col">Tür</th>
-  </tr>
-  </thead>
-  <tbody>
-  <th:block th:each="film : ${films}">
+    <thead>
     <tr>
-      <td th:text="${film.name}">...</td>
-      <td th:text="${film.releaseYear}">...</td>
-      <td th:text="${film.language}">...</td>
-      <td th:text="${film.description}">...</td>
-      <td th:text="${film.actorNames}">...</td>
-      <td th:text="${film.genreNames}">...</td>
+        <th onclick="sortTable(0)">Film Adı</th>
+        <th onclick="sortTable(1)">Yayınlanma Tarihi</th>
+        <th scope="col">Dil</th>
+        <th scope="col">Açıklama</th>
+        <th scope="col">Oyuncular</th>
+        <th scope="col">Tür</th>
     </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="film : ${films}">
+        <tr>
+            <td th:text="${film.name}">...</td>
+            <td th:text="${film.releaseYear}">...</td>
+            <td th:text="${film.language}">...</td>
+            <td th:text="${film.description}">...</td>
+            <td th:text="${film.actorNames}">...</td>
+            <td th:text="${film.genreNames}">...</td>
+        </tr>
 
-  </th:block>
-  </tbody>
+    </th:block>
+    </tbody>
 </table>
 <script>
-  function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("sortTable");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-      // Start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /* Loop through all table rows (except the
-      first, which contains table headers): */
-      for (i = 1; i < (rows.length - 1); i++) {
-        // Start by saying there should be no switching:
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-        one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
-        /* Check if the two rows should switch place,
-        based on the direction, asc or desc: */
-        if (dir == "asc") {
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-      }
-      if (shouldSwitch) {
-        /* If a switch has been marked, make the switch
-        and mark that a switch has been done: */
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("sortTable");
         switching = true;
-        // Each time a switch is done, increase this count by 1:
-        switchcount++;
-      } else {
-        /* If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again. */
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // Start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /* Loop through all table rows (except the
+            first, which contains table headers): */
+            for (i = 1; i < (rows.length - 1); i++) {
+                // Start by saying there should be no switching:
+                shouldSwitch = false;
+                /* Get the two elements you want to compare,
+                one from current row and one from the next: */
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /* Check if the two rows should switch place,
+                based on the direction, asc or desc: */
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark that a switch has been done: */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                // Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /* If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again. */
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
         }
-      }
     }
-  }
 
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

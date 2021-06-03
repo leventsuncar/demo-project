@@ -13,4 +13,6 @@ public class FilmDto {
     private String description;
     private List<String> actorNames;
     private List<String> genreNames;
+
+    //Dto olmadan olmaz
 }

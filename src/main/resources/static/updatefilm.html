@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -60,9 +69,9 @@
 
     </div>
 </nav>
-</nav>
 <div class="container">
-    <form action="/add" method="post" th:object="filmDto">
+
+    <form action="/updatebyname/" method="get" th:object="filmDto">
         <div class="sm-3">
             <label for="filmadi" class="form-label">Film Adı</label>
             <input type="text" name="name" th:name="name" class="form-control" id="filmadi">

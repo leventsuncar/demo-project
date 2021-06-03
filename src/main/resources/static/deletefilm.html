@@ -60,48 +60,18 @@
 
     </div>
 </nav>
-</nav>
-<div class="container">
-    <form action="/add" method="post" th:object="filmDto">
-        <div class="sm-3">
-            <label for="filmadi" class="form-label">Film Adı</label>
-            <input type="text" name="name" th:name="name" class="form-control" id="filmadi">
+<div class="col-md-auto">
+    <form action="/deletebyname" method="get">
 
-        </div>
-        <div class="sm-3">
-            <label for="tarih" class="form-label">Yayınlanma Tarihi</label>
-            <input type="text" name="releaseYear" th:name="releaseYear" class="form-control" id="tarih">
+        <h3>Film Adı</h3>
+        <input name="name" class="form-control" th:name="name"
+               placeholder="Film Adı">
+        <small id="filmIsmiYardimcisi" class="form-text text-muted">Film adını doğru girdiğinize emin olun.</small>
 
-        </div>
-        <div class="sm-3">
-            <label for="link" class="form-label">Medya Linki</label>
-            <input type="text" name="media" th:name="media" class="form-control" id="link">
-
-        </div>
-        <div class="sm-3">
-            <label for="dil" class="form-label">Dil</label>
-            <input type="text" name="language" th:name="language" class="form-control" id="dil">
-
-        </div>
-        <div class="sm-3">
-            <label for="aciklama" class="form-label">Açıklama</label>
-            <input type="text" name="description" th:name="description" class="form-control" id="aciklama">
-
-        </div>
-        <div class="sm-3">
-            <label for="oyuncular" class="form-label">Oyuncular</label>
-            <input type="text" name="actorNames" th:name="actorNames" class="form-control" id="oyuncular">
-
-        </div>
-        <div class="sm-3">
-            <label for="türler" class="form-label">Türler</label>
-            <input type="text" name="genreNames" th:name="genreNames" class="form-control" id="türler">
-        </div>
-
-
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Sil</button>
     </form>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

@@ -13,7 +13,7 @@ public interface FilmService {
 
     Result deleteByFilmName(String name);
 
-    Result updateByFilmName(String name);
+    Result updateByFilmName(String name,FilmDto filmDto);
 
     DataResult<List<FilmDto>> getAll();
 

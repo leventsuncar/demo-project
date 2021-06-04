@@ -66,8 +66,15 @@
 
     </div>
 </nav>
-
-<table class="table" id="sortTable">
+<div class="jumbotron"
+     style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E1BAQHXp25ByAD9yA/company-background_10000/0/1550679681786?e=2159024400&v=beta&t=LeRFPesyyAjUhsnRKmqyp7fc82hPVoyE-cMGPTaH3nU');">
+    <h1 style="color: #000000" class="display-3 font-weight-bold">Film Ekle</h1>
+    <hr class="my-4">
+    <p class="font-weight-bolder" style="color: black"> Eklemek İstediğiniz Filmin Bilgilerini Tam ve Doğru Bir
+        Şekilde Girin.</p>
+</div>
+<div class="container"></div>
+<table class="table bg-white" id="sortTable">
     <thead>
     <tr>
         <th onclick="sortTable(0)">Film Adı</th>
@@ -92,6 +99,15 @@
     </th:block>
     </tbody>
 </table>
+</div>
+<footer class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://github.com/leventsuncar">Levent Suncar</a>
+    </div>
+
+</footer>
 <script>
     function sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;

@@ -61,8 +61,10 @@
 
     </div>
 </nav>
-<div class="jumbotron">
-    <h1 class="display-4" th:text="${film.name}"></h1>
+<div class="jumbotron"
+     style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E1BAQHXp25ByAD9yA/company-background_10000/0/1550679681786?e=2159024400&v=beta&t=LeRFPesyyAjUhsnRKmqyp7fc82hPVoyE-cMGPTaH3nU')"
+     ;>
+    <h1 class="display-3" style="color: #000000" th:text="${film.name}"></h1>
     <p th:text="${film.description}"></p>
 
 </div>
@@ -72,39 +74,37 @@
             <img height="320" width="240" th:src="${film.getMedia()}">
         </div>
         <div class="col">
-            <h3>Oyuncular</h3>
-            <p class="lead" th:text="${film.getActorNames()}"></p>
+            <div class="col">
+                <h3 style="color: white">Oyuncular</h3>
+                <p class="lead" style="color: white" th:text="${film.getActorNames()}"></p>
+            </div>
+            <div class="col">
+                <h3 style="color: white">Yayın Yılı</h3>
+                <p class="lead" style="color: white" th:text="${film.getReleaseYear()}"></p>
+            </div>
         </div>
         <div class="col">
-            <h3>Tür</h3>
-            <p class="lead" th:text="${film.getGenreNames()}"></p>
+            <div class="col">
+                <h3 style="color: white">Tür</h3>
+                <p class="lead" style="color: white" th:text="${film.getGenreNames()}"></p>
+            </div>
+            <div class="col">
+                <h3 style="color: white">Dil</h3>
+                <p class="lead" style="color: white" th:text="${film.getLanguage()}"></p>
+            </div>
         </div>
     </div>
 </div>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Film Adı</th>
-        <th scope="col">Yayınlanma Yılı</th>
-        <th scope="col">Dil</th>
-        <th scope="col">Açıklama</th>
-        <th scope="col">Oyuncular</th>
-        <th scope="col">Tür</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td th:text="${film.name}">...</td>
-        <td th:text="${film.releaseYear}">...</td>
-        <td th:text="${film.language}">...</td>
-        <td th:text="${film.description}">...</td>
-        <td th:text="${film.actorNames}">...</td>
-        <td th:text="${film.genreNames}">...</td>
-    </tr>
 
-    </th:block>
-    </tbody>
-</table>
+<footer class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://github.com/leventsuncar">Levent Suncar</a>
+    </div>
+
+</footer>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

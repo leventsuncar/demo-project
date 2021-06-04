@@ -1,21 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body class="bg-dark">
-
-</body>
-</html><!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Film</title>
+    <title>Film Güncelle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-dark">
 <nav class="navbar navbar-expand-lg navbar sticky-top navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Film</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -69,48 +60,77 @@
 
     </div>
 </nav>
+<div class="jumbotron"
+     style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E1BAQHXp25ByAD9yA/company-background_10000/0/1550679681786?e=2159024400&v=beta&t=LeRFPesyyAjUhsnRKmqyp7fc82hPVoyE-cMGPTaH3nU');">
+    <h1 style="color: #000000" class="display-3 font-weight-bold">Film Ekle</h1>
+    <hr class="my-4">
+    <p class="font-weight-bolder" style="color: black"> Eklemek İstediğiniz Filmin Bilgilerini Tam ve Doğru Bir
+        Şekilde Girin.</p>
+</div>
 <div class="container">
 
-    <form action="/updatebyname/" method="get" th:object="filmDto">
-        <div class="sm-3">
-            <label for="filmadi" class="form-label">Film Adı</label>
-            <input type="text" name="name" th:name="name" class="form-control" id="filmadi">
+    <form action="/add" method="post" th:object="filmDto">
+        <div class="md-3">
+            <label for="filmadi" class="form-label text-white">Film Adı</label>
+            <input type="text" name="name" th:name="name" placeholder="Film Adı" class="form-control "
+                   id="filmadi">
+            <hr>
+        </div>
+        <div class="md-3">
+            <label for="tarih" class="form-label text-white">Yayınlanma Yılı</label>
+            <input type="text" name="releaseYear" placeholder="Yayınlanma Yılı" th:name="releaseYear"
+                   class="form-control" id="tarih">
+            <hr>
+        </div>
+        <div class="md-3">
+            <label for="link" class="form-label text-white">Medya Linki</label>
+            <input type="text" name="media" th:name="media" placeholder="Medya Linki" class="form-control"
+                   id="link">
+            <hr>
+        </div>
+        <div class="md-3">
+            <label for="dil" class="form-label text-white">Dil</label>
+            <input type="text" name="language" th:name="language" placeholder="Dil" class="form-control"
+                   id="dil">
+            <hr>
+        </div>
+        <div class="md-3">
+            <label for="aciklama" class="form-label text-white">Açıklama</label>
+            <input type="text" name="description" th:name="description" placeholder="Açıklama"
+                   class="form-control" id="aciklama">
+            <hr>
+        </div>
+        <div class="md-3">
+            <label for="oyuncular" class="form-label text-white">Oyuncular</label>
+            <input type="text" name="actorNames" th:name="actorNames" placeholder="Oyuncular"
+                   class="form-control" id="oyuncular">
+            <small style="color: black" class="form-text">Farklı oyuncular arasında lütfen ","
+                kullanın.</small>
+            <hr>
 
         </div>
-        <div class="sm-3">
-            <label for="tarih" class="form-label">Yayınlanma Tarihi</label>
-            <input type="text" name="releaseYear" th:name="releaseYear" class="form-control" id="tarih">
-
-        </div>
-        <div class="sm-3">
-            <label for="link" class="form-label">Medya Linki</label>
-            <input type="text" name="media" th:name="media" class="form-control" id="link">
-
-        </div>
-        <div class="sm-3">
-            <label for="dil" class="form-label">Dil</label>
-            <input type="text" name="language" th:name="language" class="form-control" id="dil">
-
-        </div>
-        <div class="sm-3">
-            <label for="aciklama" class="form-label">Açıklama</label>
-            <input type="text" name="description" th:name="description" class="form-control" id="aciklama">
-
-        </div>
-        <div class="sm-3">
-            <label for="oyuncular" class="form-label">Oyuncular</label>
-            <input type="text" name="actorNames" th:name="actorNames" class="form-control" id="oyuncular">
-
-        </div>
-        <div class="sm-3">
-            <label for="türler" class="form-label">Türler</label>
-            <input type="text" name="genreNames" th:name="genreNames" class="form-control" id="türler">
+        <div class="md-3">
+            <label for="Tür" class="form-label text-white">Oyuncular</label>
+            <input type="text"  name="genreNames" th:name="genreNames" placeholder="Tür" class="form-control"
+                   id="Tür">
+            <small style="color: black" class="form-text "> Birden fazla tür girmek isterseniz tür isimleri
+                arasına lütfen "," koyun.
+            </small>
+            <hr>
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Ekle</button>
     </form>
 </div>
+<footer class="text-center text-lg-start bg-light text-muted">
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://github.com/leventsuncar">Levent Suncar</a>
+    </div>
+
+</footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

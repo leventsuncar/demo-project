@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Film</title>
+    <title>Film Ara</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body class="bg-secondary">
+<body class="bg-dark">
 <nav class="navbar navbar-expand-lg navbar sticky-top navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Film</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -60,13 +60,14 @@
 
     </div>
 </nav>
+
+<div class="jumbotron"
+     style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E1BAQHXp25ByAD9yA/company-background_10000/0/1550679681786?e=2159024400&v=beta&t=LeRFPesyyAjUhsnRKmqyp7fc82hPVoyE-cMGPTaH3nU');">
+    <h1 style="color: #000000" class="display-3 font-weight-bold">Oyuncu İsmine Göre Film Ara</h1>
+    <hr class="my-4">
+    <p class="font-weight-bolder" style="color: black"></p>
+</div>
 <div class="container">
-    <div class="jumbotron"
-         style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E1BAQHXp25ByAD9yA/company-background_10000/0/1550679681786?e=2159024400&v=beta&t=LeRFPesyyAjUhsnRKmqyp7fc82hPVoyE-cMGPTaH3nU');">
-        <h1 style="color: #000000" class="display-3 font-weight-bold">Oyuncu İsmine Göre Film Ara</h1>
-        <hr class="my-4">
-        <p class="font-weight-bolder" style="color: black"> </p>
-    </div>
     <div class="col-md-auto">
         <form action="/getbyactorname" method="get">
 
@@ -76,10 +77,16 @@
             <small id="filmIsmiYardimcisi" class="form-text text-white">Oyuncu adını doğru girdiğinize emin
                 olun.</small>
 
-            <button type="submit" class="btn btn-dark">Ara</button>
+            <button type="submit" class="btn btn-primary">Ara</button>
         </form>
     </div>
 </div>
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://github.com/leventsuncar">Levent Suncar</a>
+        </div>
+    </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

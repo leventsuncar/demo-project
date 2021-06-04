@@ -69,7 +69,7 @@
 </div>
 <div class="container">
 
-    <form action="/add" method="post" th:object="filmDto">
+    <form action="/updatebyname" method="get" th:object="filmDto">
         <div class="md-3">
             <label for="filmadi" class="form-label text-white">Film Adı</label>
             <input type="text" name="name" th:name="name" placeholder="Film Adı" class="form-control "
@@ -110,7 +110,7 @@
 
         </div>
         <div class="md-3">
-            <label for="Tür" class="form-label text-white">Oyuncular</label>
+            <label for="Tür" class="form-label text-white">Tür</label>
             <input type="text"  name="genreNames" th:name="genreNames" placeholder="Tür" class="form-control"
                    id="Tür">
             <small style="color: black" class="form-text "> Birden fazla tür girmek isterseniz tür isimleri

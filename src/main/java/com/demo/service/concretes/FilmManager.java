@@ -68,7 +68,7 @@ public class FilmManager implements FilmService {
         film1.setLanguage(film2.getLanguage());
         film1.setDescription(film2.getDescription());
         filmDao.save(film1);
-        return null;
+        return new SuccessResult("Bşarılı");
 
     }
 

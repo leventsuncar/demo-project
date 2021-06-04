@@ -5,7 +5,7 @@ Sql yedeği: Demo Database Script.sql\
 Code First\
 Tabloların table headerlarına tıklandığında sort işlemi yapabiliyor.
 
-Database oluşturmak için Postgre Sql kullandım. 
+Database oluşturmak için Postgre Sql kullandım.\
 ![yenidboluşturma](https://user-images.githubusercontent.com/80010942/120762324-cf260c00-c51e-11eb-8dee-17af031dbbd2.jpg)
 
 demo adında bir database oluşturduktan sonra restore yapmamız gerekiyor\

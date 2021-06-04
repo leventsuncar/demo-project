@@ -19,3 +19,15 @@ Restore için proje dosyasındaki Demo Database Script.sql dosyasını kullanman
 ![restore3](https://user-images.githubusercontent.com/80010942/120762568-0eecf380-c51f-11eb-8606-bc08690ef2ec.jpg)
 
 Restore butonuna tıklayarak işlemi bitiriyoruz.
+
+
+![Ana Sayfa](https://user-images.githubusercontent.com/80010942/120793286-626f3980-c53f-11eb-8124-d1072750e0fb.PNG)
+
+
+![Filmler](https://user-images.githubusercontent.com/80010942/120793337-71ee8280-c53f-11eb-89a4-4dee1aea6b8b.PNG)
+
+
+![film ekle](https://user-images.githubusercontent.com/80010942/120793374-7b77ea80-c53f-11eb-8a4f-7454f3cf4c57.PNG)
+
+![Film Ara](https://user-images.githubusercontent.com/80010942/120793408-8763ac80-c53f-11eb-9122-41af8e32ff66.PNG)
+

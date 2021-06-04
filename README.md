@@ -21,7 +21,7 @@ Restore için proje dosyasındaki Demo Database Script.sql dosyasını kullanman
 Restore butonuna tıklayarak işlemi bitiriyoruz.
 
 
-![Ana Sayfa](https://user-images.githubusercontent.com/80010942/120793286-626f3980-c53f-11eb-8124-d1072750e0fb.PNG)
+![ana-sayfa](https://user-images.githubusercontent.com/80010942/120794019-520b8e80-c540-11eb-8725-360d2d9bbdb8.PNG)
 
 
 ![Filmler](https://user-images.githubusercontent.com/80010942/120793337-71ee8280-c53f-11eb-89a4-4dee1aea6b8b.PNG)

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-secondary">
 <nav class="navbar navbar-expand-lg navbar sticky-top navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Film</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -60,16 +60,25 @@
 
     </div>
 </nav>
-<div class="col-md-auto">
-    <form action="/getbyactorname" method="get">
+<div class="container">
+    <div class="jumbotron"
+         style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E1BAQHXp25ByAD9yA/company-background_10000/0/1550679681786?e=2159024400&v=beta&t=LeRFPesyyAjUhsnRKmqyp7fc82hPVoyE-cMGPTaH3nU');">
+        <h1 style="color: #000000" class="display-3 font-weight-bold">Oyuncu İsmine Göre Film Ara</h1>
+        <hr class="my-4">
+        <p class="font-weight-bolder" style="color: black"> </p>
+    </div>
+    <div class="col-md-auto">
+        <form action="/getbyactorname" method="get">
 
-        <h3>Oyuncu Adı</h3>
-        <input name="name" class="form-control" th:name="name"
-               placeholder="Oyuncu Adı">
-        <small id="filmIsmiYardimcisi" class="form-text text-muted">Oyuncu adını doğru girdiğinize emin olun.</small>
+            <h3 class="text-white">Oyuncu Adı</h3>
+            <input name="name" class="form-control" th:name="name"
+                   placeholder="Oyuncu Adı">
+            <small id="filmIsmiYardimcisi" class="form-text text-white">Oyuncu adını doğru girdiğinize emin
+                olun.</small>
 
-        <button type="submit" class="btn btn-primary">Ara</button>
-    </form>
+            <button type="submit" class="btn btn-dark">Ara</button>
+        </form>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

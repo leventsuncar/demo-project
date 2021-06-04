@@ -26,7 +26,7 @@ public class Film {
     @NotNull(message = "Yayınlanma yılı boş bırakılamaz")
     private int releaseYear;
 
-    @Column(name = "media")
+    @Column(name = "media",length = 500)
     @NotBlank(message = "Medya boş bırakılamaz")
     @NotNull(message = "Medya boş bırakılamaz")
     private String media;
@@ -36,7 +36,7 @@ public class Film {
     private String language;
 
 
-    @Column(name = "description")
+    @Column(name = "description", length = 750)
     private String description;
 
     @ManyToMany

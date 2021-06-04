@@ -17,7 +17,7 @@ public class Film {
     @Column(name = "film_id")
     private Long filmId;
 
-    @Column(name = "name")
+    @Column(name = "name",unique = true)
     @NotBlank(message = "Film ismi boş bırakılamaz")
     @NotNull(message = "Film ismi boş bırakılamaz")
     private String filmName;
